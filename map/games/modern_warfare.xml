@@ -1196,9 +1196,6 @@
     <player name="US" optional="false" canBeDisabled="false"/>
     <player name="China" optional="false" canBeDisabled="false"/>
     <player name="Commonwealth" optional="false" canBeDisabled="false"/>
-    <!-- Alliances can have any name, not just axis and allies.  There can be more than 2 alliances -->
-    <!-- Since triplea version 1.3.3.0 it is preferred to use relationships instead of or in addition to alliances. If relationships are set, then alliances will only matter for the stats panel and any game option type victory conditions -->
-    <!-- Axis alliance -->
     <alliance player="Russia" alliance="Russian"/>
     <alliance player="EuropeanUnion" alliance="NATO"/>
     <alliance player="Arab" alliance="Russian"/>
@@ -1684,7 +1681,6 @@
     <technologies>
       <techname name="rocket"/>
       <techname name="paratroopers"/>
-      <techname name="mechanizedInfantry"/>
 	  <techname name="RadarAbsorbantMaterial"/>
       <techname name="5thGenFighters"/>
 	  <techname name="LowObservabilityBombers"/>
@@ -1692,7 +1688,7 @@
 	  <techname name="IndustrialMobilization"/>
 	  <techname name="PrecisionGuidedShells"/>
 	  <techname name="MassiveMobilization"/>
-	  <techname name="VictoryBonds"/>
+	  <techname name="VictoryBonds" tech="warBonds"/>
 	  <techname name="BattleshipRefits"/>
 	  <techname name="EscortShipRefits"/>
 	  <techname name="DroneReconIntegration"/>
@@ -1704,7 +1700,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
 		<tech name="5thGenFighters"/>
@@ -1735,7 +1730,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
 		<tech name="5thGenFighters"/>
@@ -1766,7 +1760,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
       </category>
@@ -1795,7 +1788,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
 		<tech name="5thGenFighters"/>
@@ -1826,7 +1818,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
 		<tech name="5thGenFighters"/>
@@ -1857,7 +1848,6 @@
 	<category name="Default">
         <tech name="rocket"/>
         <tech name="paratroopers"/>
-        <tech name="mechanizedInfantry"/>
       </category>
 	  <category name="Stealth Aircraft Production">
 		<tech name="5thGenFighters"/>
@@ -1905,32 +1895,26 @@
     <attachment name="techAttachment" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
 	<attachment name="techAttachment" attachTo="EuropeanUnion" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
 	<attachment name="techAttachment" attachTo="Arab" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
 	<attachment name="techAttachment" attachTo="US" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
 	<attachment name="techAttachment" attachTo="China" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
 	<attachment name="techAttachment" attachTo="Commonwealth" javaClass="games.strategy.triplea.attachments.TechAttachment" type="player">
       <option name="rocket" value="true"/>
       <option name="paratroopers" value="true"/>
-      <option name="mechanizedInfantry" value="true"/>
     </attachment>
     <!-- Unit Attachments -->
     <!-- Infantry -->
@@ -4390,7 +4374,7 @@
 	  <option name="when" value="after:RussiaUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentPOMCUS1stCavAI" attachTo="US" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentUSAI"/>
+	  <option name="conditions" value="conditionAttachmentUSAI:conditionAttachmentUSPOMCUS1stCav"/>
       <option name="placement" value="Western Germany:Armour" count="3"/>
 	  <option name="placement" value="Western Germany:Helicopter" count="1"/>
 	  <option name="removeUnits" value="Western Germany:POMCUS1stCav" count="1"/>
@@ -4398,7 +4382,7 @@
 	  <option name="when" value="after:USUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentPOMCUS2ndArmDivAI" attachTo="US" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentUSAI"/>
+	  <option name="conditions" value="conditionAttachmentUSAI:conditionAttachmentUSPOMCUS2ndArmDiv"/>
       <option name="placement" value="Western Germany:Mechanized" count="2"/>
 	  <option name="placement" value="Western Germany:Armour" count="1"/>
 	  <option name="placement" value="Western Germany:Helicopter" count="1"/>
@@ -4407,7 +4391,7 @@
 	  <option name="when" value="after:USUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentPOMCUSIIIMEFAI" attachTo="US" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentUSAI"/>
+	  <option name="conditions" value="conditionAttachmentUSAI:conditionAttachmentUSPOMCUSIIIMEF"/>
       <option name="placement" value="Japan:SF" count="1"/>
 	  <option name="placement" value="Japan:Infantry" count="2"/>
 	  <option name="placement" value="Japan:Helicopter" count="1"/>
@@ -4416,7 +4400,7 @@
 	  <option name="when" value="after:USUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentWMDKalinAI" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentRussiaAI"/>
+	  <option name="conditions" value="conditionAttachmentRussiaAI:conditionAttachmentWMDKalin"/>
       <option name="placement" value="Novgorod:Mechanized" count="3"/>
 	  <option name="placement" value="Novgorod:Artillery" count="1"/>
 	  <option name="placement" value="Novgorod:SPArtillery" count="1"/>
@@ -4426,7 +4410,7 @@
 	  <option name="when" value="after:RussiaUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentPRC15AirAI" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentChinaAI"/>
+	  <option name="conditions" value="conditionAttachmentChinaAI:conditionAttachmentPRC15Air"/>
       <option name="placement" value="Hopei:Infantry" count="6"/>
 	  <option name="placement" value="Hopei:SF" count="1"/>
 	  <option name="placement" value="Hopei:CargoPlane" count="2"/>
@@ -4435,7 +4419,7 @@
 	  <option name="when" value="after:ChinaUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentUK1stArmDivAI" attachTo="Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentCommonwealthAI"/>
+	  <option name="conditions" value="conditionAttachmentCommonwealthAI:conditionAttachmentUK1stArmDivMay"/>
       <option name="placement" value="Malaya:Armour" count="1"/>
 	  <option name="placement" value="Malaya:SF" count="1"/>
 	  <option name="placement" value="Malaya:Mechanized" count="2"/>
@@ -4445,84 +4429,12 @@
 	  <option name="when" value="after:UKUserActions"/>
     </attachment>
 	<attachment name="triggerAttachmentEUBattlegroupAI" attachTo="EuropeanUnion" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentEUAI"/>
+	  <option name="conditions" value="conditionAttachmentEUAI:conditionAttachmentEUBattlegroup"/>
       <option name="placement" value="Slovakia Hungary:Armour" count="1"/>
 	  <option name="placement" value="Slovakia Hungary:Mechanized" count="3"/>
 	  <option name="removeUnits" value="Slovakia Hungary:EUBattlegroup" count="1"/>
 	  <option name="uses" value="1"/>
 	  <option name="when" value="after:EUUserActions"/>
-    </attachment>
-	<attachment name="triggerAttachmentRussiaTechAI" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentRussiaAI"/>
-      <option name="when" value="before:RussiaTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentRussiaDPAI" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentRussiaAI"/>
-      <option name="when" value="before:RussiaTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
-    </attachment>
-	<attachment name="triggerAttachmentArabTechAI" attachTo="Arab" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentArabAI"/>
-      <option name="when" value="before:ArabTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentArabDPAI" attachTo="Arab" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentArabAI"/>
-      <option name="when" value="before:ArabTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
-    </attachment>
-	<attachment name="triggerAttachmentChinaTechAI" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentChinaAI"/>
-      <option name="when" value="before:ChinaTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentChinaDPAI" attachTo="China" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentChinaAI"/>
-      <option name="when" value="before:ChinaTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
-    </attachment>
-	<attachment name="triggerAttachmentEUTechAI" attachTo="EuropeanUnion" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentEUAI"/>
-      <option name="when" value="before:EUTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentEUDPAI" attachTo="Russia" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentEUAI"/>
-      <option name="when" value="before:EUTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
-    </attachment>
-	<attachment name="triggerAttachmentUKTechAI" attachTo="Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentCommonwealthAI"/>
-      <option name="when" value="before:UKTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentUKDPAI" attachTo="Commonwealth" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentCommonwealthAI"/>
-      <option name="when" value="before:UKTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
-    </attachment>
-	<attachment name="triggerAttachmentUSTechAI" attachTo="US" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentUSAI"/>
-      <option name="when" value="before:USTech"/>
-	  <option name="resource" value="techTokens"/>
-	  <option name="resourceCount" value="1"/>
-    </attachment>
-	<attachment name="triggerAttachmentUSDPAI" attachTo="US" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
-	  <option name="conditions" value="conditionAttachmentUSAI"/>
-      <option name="when" value="before:USTech"/>
-	  <option name="resource" value="DP"/>
-	  <option name="resourceCount" value="-1"/>
     </attachment>
 	<!-- China and Arab entry -->
 	<attachment name="politicalActionAttachmentArabRussiaAlly" attachTo="Arab" javaClass="games.strategy.triplea.attachments.PoliticalActionAttachment" type="player">
@@ -4853,6 +4765,7 @@
 	<attachment name="techAbilityAttachment" attachTo="rocket" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
       <option name="rocketDiceNumber" value="1:Missile"/>
 	  <option name="rocketDiceNumber" value="1:Cruiser"/>
+	  <option name="rocketDiceNumber" value="1:Submarine"/>
       <option name="rocketDistance" value="2"/>
       <option name="rocketNumberPerTerritory" value="200"/>
     </attachment>
@@ -4889,10 +4802,6 @@
 	  <option name="unitAbilitiesGained" value="Mechanized:canBlitz"/>
 	  <option name="unitAbilitiesGained" value="SPArtillery:canBlitz"/>
 	  <option name="movementBonus" value="1:Mechanized"/>
-    </attachment>
-	<attachment name="techAbilityAttachment" attachTo="VictoryBonds" javaClass="games.strategy.triplea.attachments.TechAbilityAttachment" type="technology">
-	  <option name="warBondDiceSides" value="6"/>
-	  <option name="warBondDiceNumber" value="1"/>
     </attachment>
   </attachmentList>
   <initialize>
@@ -6244,7 +6153,7 @@
 <br>
 <b>Game Rules</b><br>
 <br> The rules are mostly Axis and Allies Global 2nd Edition, with some important differences<br>
-<br> Every faction has 3 AAA default "techs", in order to enable some game mechanics: Rockets (to enable Submarines, Cruisers and Missile Launchers to launch missiles), Mechanized Infantry (not yet used) and Paratroopers (To enable Cargo Planes to airlift troops)<br>
+<br> Every faction has 2 AAA default "techs", in order to enable some game mechanics: Rockets (to enable Submarines, Cruisers and Missile Launchers to launch missiles) and Paratroopers (To enable Cargo Planes to airlift troops)<br>
 <br> Rockets have a range of 2 and a damage threshold of 1-6.<br>
 <br> Battles last 1 turn. If at the end of a battle both sides still have units in the territory, the territory becomes contested and its PU production is frozen. It can still mobilize units for the owner of the factory<br>
 <br> Before a battle, a new step has been introduced: the Air Supremacy Step. All planes (not helicopters) fight 1 round air battle. These units then participate normally in battle afterwards. Can be disabled from Map Options<br>
@@ -6254,7 +6163,7 @@
 <br> Every Capital produces 1 Diplomacy Point per turn, which may be used to influence other countries or augument your forces during the Operations Step of the turn, just before the Purchase Step. Every action costs either 1 or 2 DPs, and its effects may be found in the tables below.<br>
 <br> Victory Condition: The Russia Alliance must have 18 Victory Cities at the end of a Commonwealth turn. The NATO Alliance must have 26 Victory Cities at the end of a Commonwealth turn.<br>
 <br> <br>
-<br> If you want the AI to use the User Actions, tick the (faction) is AI option in Map Options. It makes the AI use the triggers as well (after Round 2, random chance for each available action)<br>
+<br> If you want the AI to "use" the User Actions, tick the (faction) is AI option in Map Options. (it activates special AI triggers in order for them to be able to deploy the Rapid Reaction Forces or to convince countries to join them)<br>
 <br>
 <table border="1"bgcolor="ABABAB">
 	<tr>
