@@ -6080,10 +6080,10 @@
     <property name="Air Battle Defenders Can Retreat" value="false" editable="false">
       <boolean/>
     </property>
-    <property name="Battles May Be Preceeded By Air Battles" value="true" editable="true">
+    <property name="Battles May Be Preceeded By Air Battles" value="true" editable="false">
       <boolean/>
     </property>
-    <property name="Raids May Be Preceeded By Air Battles" value="true" editable="true">
+    <property name="Raids May Be Preceeded By Air Battles" value="true" editable="false">
       <boolean/>
     </property>
     <property name="Damage From Bombing Done To Units Instead Of Territories" value="true" editable="false">
